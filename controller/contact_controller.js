@@ -22,3 +22,35 @@ export const getOneContact = async(req, res) => {
     
     }
 };
+
+export const getAllContact = async( req, res ) => {
+    try {
+        const allContacts = await contactModel.find();
+        res.json(allContacts)
+        // res.status(200).send(allContacts)
+    } catch (error) {
+        
+    }
+};
+
+// update Contact
+export const updateContact = async(req, res) => {
+    try {
+        const newContact = await(contactModel.findByIdAndUpdate(req.params.id, req.body));
+        res.status(200).send(newContact)
+    } catch (error) {
+        console.log(error)
+    
+    }
+};
+
+// Delete contact
+export const deleteContact = async(req, res) => {
+    try {
+        const removeContact = await(contactModel.findByIdAndDelete(req.params.id, req.body));
+        res.status(200).send(removeContact)
+    } catch (error) {
+        console.log(error)
+    
+    }
+};

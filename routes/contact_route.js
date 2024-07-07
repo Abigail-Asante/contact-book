@@ -4,8 +4,8 @@ import { addContact, deleteContact, getAllContact, getOneContact, updateContact 
 const contactRoute = Router();
 
 contactRoute.post('/contact', addContact);
-contactRoute.get('/:id', getOneContact );
-contactRoute.get('/contact', getAllContact);
+contactRoute.get('/oneContact/:id', getOneContact );
+contactRoute.get('/allContact', getAllContact);
 contactRoute.patch('/contact/:id', updateContact);
 contactRoute.delete('/contact/:id', deleteContact);
 
